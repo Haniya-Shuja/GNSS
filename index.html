@@ -1,0 +1,942 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GNSS Performance Monitoring System</title>
+
+<link rel="stylesheet" href="style.css"
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <div class="logo">
+            GNSS
+        </div>
+
+        <h1>
+            GNSS Performance Monitoring System
+        </h1>
+
+    </div>
+
+    <div class="status" id="systemStatus">
+
+        <span class="status-dot"></span>
+
+        System Ready
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<div class="dashboard">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-title">
+            Monitoring
+        </div>
+
+
+        <button
+            class="nav-btn active"
+            onclick="showPage('settings',this)"
+        >
+
+            <span class="nav-icon">⚙</span>
+
+            <span>Settings</span>
+
+        </button>
+
+
+        <button
+            class="nav-btn"
+            onclick="showPage('position',this)"
+        >
+
+            <span class="nav-icon">◎</span>
+
+            <span>Position</span>
+
+        </button>
+
+
+        <button
+            class="nav-btn"
+            onclick="showPage('dop',this)"
+        >
+
+            <span class="nav-icon">▥</span>
+
+            <span>Dilution of Precision</span>
+
+        </button>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- =================================================
+             SETTINGS
+        ================================================== -->
+
+        <section
+            id="settings"
+            class="page active"
+        >
+
+            <div class="settings-window">
+
+
+                <div class="settings-titlebar">
+
+                    <span>
+                        GNSS Parameter Recording System
+                    </span>
+
+                    <div class="window-buttons">
+
+                        <span>−</span>
+                        <span>×</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DEVICE -->
+
+                <div class="settings-section">
+
+                    <h2>
+                        Device Type
+                    </h2>
+
+                    <div class="setting-row">
+
+                        <div class="setting-label">
+                            Type :
+                        </div>
+
+                        <select id="deviceType">
+
+                            <option>Serial</option>
+                            <option>USB</option>
+                            <option>Network</option>
+                            <option>Bluetooth</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERIAL -->
+
+                <div class="settings-section">
+
+                    <h2>
+                        Serial Settings
+                    </h2>
+
+
+                    <div class="settings-columns">
+
+
+                        <div>
+
+                            <div class="setting-row">
+
+                                <div class="setting-label">
+                                    Port Name :
+                                </div>
+
+                                <select>
+
+                                    <option>COM1</option>
+                                    <option>COM2</option>
+                                    <option>COM3</option>
+                                    <option>COM4</option>
+                                    <option>COM5</option>
+                                    <option>COM6</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="setting-row">
+
+                                <div class="setting-label">
+                                    Baud Rate :
+                                </div>
+
+                                <select>
+
+                                    <option>9600</option>
+                                    <option>19200</option>
+                                    <option>38400</option>
+                                    <option>57600</option>
+                                    <option selected>115200</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="setting-row">
+
+                                <div class="setting-label">
+                                    Stop Bits :
+                                </div>
+
+                                <select>
+
+                                    <option>One</option>
+                                    <option>Two</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="setting-row">
+
+                                <div class="setting-label">
+                                    Data Bits :
+                                </div>
+
+                                <select>
+
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option selected>8</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="setting-row">
+
+                                <div class="setting-label">
+                                    Parity :
+                                </div>
+
+                                <select>
+
+                                    <option selected>None</option>
+                                    <option>Even</option>
+                                    <option>Odd</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GNSS -->
+
+                <div class="settings-section">
+
+                    <h2>
+                        GNSS Options
+                    </h2>
+
+
+                    <div class="radio-group">
+
+                        <label class="radio-label">
+
+                            <input
+                                type="radio"
+                                name="gnss"
+                                checked
+                            >
+
+                            GPS
+
+                        </label>
+
+
+                        <label class="radio-label">
+
+                            <input
+                                type="radio"
+                                name="gnss"
+                            >
+
+                            GLONASS
+
+                        </label>
+
+
+                        <label class="radio-label">
+
+                            <input
+                                type="radio"
+                                name="gnss"
+                            >
+
+                            Galileo
+
+                        </label>
+
+
+                        <label class="radio-label">
+
+                            <input
+                                type="radio"
+                                name="gnss"
+                            >
+
+                            BeiDou
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="settings-actions">
+
+                    <button
+                        class="settings-btn start"
+                        onclick="startMonitoring()"
+                    >
+                        Start Monitoring
+                    </button>
+
+
+                    <button
+                        class="settings-btn"
+                        onclick="cancelSettings()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             POSITION
+        ================================================== -->
+
+        <section
+            id="position"
+            class="page"
+        >
+
+            <div class="position-header">
+
+                <div>
+
+                    <h1 class="page-title">
+                        GNSS Position
+                    </h1>
+
+                    <p class="page-description">
+                        Real-time GNSS positioning information
+                    </p>
+
+                </div>
+
+
+                <div class="live-badge">
+
+                    <span class="status-dot"></span>
+
+                    LIVE DATA
+
+                </div>
+
+            </div>
+
+
+            <div class="position-grid">
+
+
+                <!-- COORDINATES -->
+
+                <div class="position-card">
+
+                    <h3>
+                        Geographic Coordinates
+                    </h3>
+
+
+                    <div class="coordinate">
+
+                        <span>Latitude</span>
+
+                        <span id="latitude">
+                            24.860700°
+                        </span>
+
+                    </div>
+
+
+                    <div class="coordinate">
+
+                        <span>Longitude</span>
+
+                        <span id="longitude">
+                            67.001100°
+                        </span>
+
+                    </div>
+
+
+                    <div class="coordinate">
+
+                        <span>Altitude</span>
+
+                        <span id="altitude">
+                            32.40 m
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUALITY -->
+
+                <div class="position-card">
+
+                    <h3>
+                        Position Quality
+                    </h3>
+
+
+                    <div class="coordinate">
+
+                        <span>Fix Type</span>
+
+                        <span class="green">
+                            3D Fix
+                        </span>
+
+                    </div>
+
+
+                    <div class="coordinate">
+
+                        <span>Satellites</span>
+
+                        <span id="satellites">
+                            14
+                        </span>
+
+                    </div>
+
+
+                    <div class="coordinate">
+
+                        <span>Accuracy</span>
+
+                        <span>
+                            1.8 m
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NORTHING -->
+
+                <div class="info-card">
+
+                    <h3>
+                        Northing
+                    </h3>
+
+                    <div class="value blue">
+                        2754321.42 m
+                    </div>
+
+                </div>
+
+
+                <!-- EASTING -->
+
+                <div class="info-card">
+
+                    <h3>
+                        Easting
+                    </h3>
+
+                    <div class="value blue">
+                        334521.18 m
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DOP
+        ================================================== -->
+
+        <section
+            id="dop"
+            class="page"
+        >
+
+            <h1 class="page-title">
+                Dilution of Precision
+            </h1>
+
+            <p class="page-description">
+                GNSS geometry and positioning quality
+            </p>
+
+
+            <div class="dop-grid">
+
+
+                <div class="dop-card">
+
+                    <h3>
+                        HDOP
+                    </h3>
+
+                    <div class="dop-value green">
+                        0.82
+                    </div>
+
+                </div>
+
+
+                <div class="dop-card">
+
+                    <h3>
+                        VDOP
+                    </h3>
+
+                    <div class="dop-value yellow">
+                        1.21
+                    </div>
+
+                </div>
+
+
+                <div class="dop-card">
+
+                    <h3>
+                        PDOP
+                    </h3>
+
+                    <div class="dop-value green">
+                        1.48
+                    </div>
+
+                </div>
+
+
+                <div class="dop-card">
+
+                    <h3>
+                        GDOP
+                    </h3>
+
+                    <div class="dop-value blue">
+                        2.13
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRAPH -->
+
+            <div class="chart-container">
+
+                <div class="chart-header">
+
+                    <h3>
+                        DOP Performance Graph
+                    </h3>
+
+                    <span>
+                        Current GNSS measurements
+                    </span>
+
+                </div>
+
+
+                <div class="chart">
+
+
+                    <div class="bar-wrapper">
+
+                        <div
+                            class="bar"
+                            style="height:45%;"
+                        >
+
+                            <span class="bar-value">
+                                0.82
+                            </span>
+
+                        </div>
+
+                        <span class="bar-label">
+                            HDOP
+                        </span>
+
+                    </div>
+
+
+                    <div class="bar-wrapper">
+
+                        <div
+                            class="bar"
+                            style="height:60%;"
+                        >
+
+                            <span class="bar-value">
+                                1.21
+                            </span>
+
+                        </div>
+
+                        <span class="bar-label">
+                            VDOP
+                        </span>
+
+                    </div>
+
+
+                    <div class="bar-wrapper">
+
+                        <div
+                            class="bar"
+                            style="height:70%;"
+                        >
+
+                            <span class="bar-value">
+                                1.48
+                            </span>
+
+                        </div>
+
+                        <span class="bar-label">
+                            PDOP
+                        </span>
+
+                    </div>
+
+
+                    <div class="bar-wrapper">
+
+                        <div
+                            class="bar"
+                            style="height:90%;"
+                        >
+
+                            <span class="bar-value">
+                                2.13
+                            </span>
+
+                        </div>
+
+                        <span class="bar-label">
+                            GDOP
+                        </span>
+
+                    </div>
+
+
+                    <div class="bar-wrapper">
+
+                        <div
+                            class="bar"
+                            style="height:55%;"
+                        >
+
+                            <span class="bar-value">
+                                1.05
+                            </span>
+
+                        </div>
+
+                        <span class="bar-label">
+                            T1
+                        </span>
+
+                    </div>
+
+
+                    <div class="bar-wrapper">
+
+                        <div
+                            class="bar"
+                            style="height:65%;"
+                        >
+
+                            <span class="bar-value">
+                                1.35
+                            </span>
+
+                        </div>
+
+                        <span class="bar-label">
+                            T2
+                        </span>
+
+                    </div>
+
+
+                    <div class="bar-wrapper">
+
+                        <div
+                            class="bar"
+                            style="height:50%;"
+                        >
+
+                            <span class="bar-value">
+                                0.96
+                            </span>
+
+                        </div>
+
+                        <span class="bar-label">
+                            T3
+                        </span>
+
+                    </div>
+
+
+                    <div class="bar-wrapper">
+
+                        <div
+                            class="bar"
+                            style="height:75%;"
+                        >
+
+                            <span class="bar-value">
+                                1.62
+                            </span>
+
+                        </div>
+
+                        <span class="bar-label">
+                            T4
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="footer">
+
+            GNSS Performance Monitoring System © 2026
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   TAB NAVIGATION
+========================================================= */
+
+function showPage(pageId, button){
+
+    /* Hide all pages */
+
+    document.querySelectorAll(".page")
+        .forEach(page => {
+            page.classList.remove("active");
+        });
+
+
+    /* Show selected page */
+
+    document
+        .getElementById(pageId)
+        .classList.add("active");
+
+
+    /* Remove active state */
+
+    document.querySelectorAll(".nav-btn")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+
+    /* Add active state */
+
+    button.classList.add("active");
+
+}
+
+
+/* =========================================================
+   START MONITORING
+========================================================= */
+
+function startMonitoring(){
+
+    const status =
+        document.getElementById("systemStatus");
+
+
+    status.innerHTML =
+        '<span class="status-dot"></span> Monitoring Active';
+
+
+    /* Automatically move to Position page */
+
+    const positionButton =
+        document.querySelectorAll(".nav-btn")[1];
+
+
+    showPage(
+        "position",
+        positionButton
+    );
+
+}
+
+
+/* =========================================================
+   CANCEL
+========================================================= */
+
+function cancelSettings(){
+
+    alert(
+        "Configuration cancelled."
+    );
+
+}
+
+
+/* =========================================================
+   SIMULATED GNSS DATA
+========================================================= */
+
+setInterval(function(){
+
+    const latitude =
+        (
+            24.860700 +
+            (Math.random() - .5) * .001
+        ).toFixed(6);
+
+
+    const longitude =
+        (
+            67.001100 +
+            (Math.random() - .5) * .001
+        ).toFixed(6);
+
+
+    const altitude =
+        (
+            32.4 +
+            (Math.random() - .5) * 2
+        ).toFixed(2);
+
+
+    const satellites =
+        Math.floor(
+            12 + Math.random() * 6
+        );
+
+
+    document.getElementById(
+        "latitude"
+    ).innerText =
+        latitude + "°";
+
+
+    document.getElementById(
+        "longitude"
+    ).innerText =
+        longitude + "°";
+
+
+    document.getElementById(
+        "altitude"
+    ).innerText =
+        altitude + " m";
+
+
+    document.getElementById(
+        "satellites"
+    ).innerText =
+        satellites;
+
+},2000);
+
+</script>
+
+</body>
+</html>
+```
+
